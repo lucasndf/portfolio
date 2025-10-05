@@ -4,14 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas Nascimento | Portfólio</title>
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 0;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .hero {
+      background-color: #eaf6ff;
+      padding-top: 140px;
+      text-align: center;
+    }
+
+    .foto-perfil {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #0077ff;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #0077ff;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .sobre, .projetos, .contato {
+      background-color: #fff;
+      padding-top: 80px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: #f3f3f3;
+      padding: 20px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      background: #e0e0e0;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+    }
+
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <div class="container">
-      <h1></h1>
+      <h1>Lucas Nascimento</h1>
       <nav>
         <ul>
           <li><a href="#sobre">Sobre</a></li>
@@ -24,6 +153,7 @@
 
   <section class="hero">
     <div class="container">
+      <img src="eufoto.jpg" alt="Foto de Lucas" class="foto-perfil">
       <h2>Olá! Eu sou o Lucas</h2>
       <p>Desenvolvedor em formação, apaixonado por criar e aprender.</p>
       <a href="#projetos" class="btn">Ver Projetos</a>
@@ -33,7 +163,8 @@
   <section id="sobre" class="sobre">
     <div class="container">
       <h2>Sobre mim</h2>
-      <p>Sou estudante de Ciência da Computação e estou aprendendo desenvolvimento web com foco em HTML, CSS e Java.</p>
+      <p>Sou estudante de Ciência da Computação, com foco em desenvolvimento web utilizando HTML, CSS e JavaScript.
+Tenho experiência na criação de projetos práticos voltados para negócios reais, como sistemas internos, sites institucionais e ferramentas personalizadas para empresas.</p>
     </div>
   </section>
 
@@ -43,21 +174,39 @@
       <div class="grid">
 
         <div class="card">
-          <h3>Linktree Clone</h3>
-          <p>Uma página simples com links para redes sociais e contatos.</p>
+          <h3>Linktree Pessoal</h3>
+          <p>Uma página com todos os meus links de redes sociais e contatos.</p>
           <a href="https://lucasndf.github.io/meu-linktree/" target="_blank">Ver projeto</a>
         </div>
 
         <div class="card">
-          <h3>Real Car</h3>
-          <p>Site institucional para uma oficina de recondicionamento de amortecedores nacionais e importados, com botão de contato via WhatsApp.</p>
+          <h3>Site Real Car</h3>
+          <p>Site institucional da oficina Real Car com apresentação da empresa e contato por WhatsApp.</p>
           <a href="https://lucasndf.github.io/site-realcar/" target="_blank">Ver projeto</a>
         </div>
 
         <div class="card">
-          <h3>Deu Fome - Restaurante</h3>
-          <p>Landing page simples e funcional para um restaurante local com foco em delivery. Desenvolvida em HTML, CSS e responsiva para dispositivos móveis.</p>
+          <h3>Linktree Restaurante</h3>
+          <p>Linktree personalizado para o perfil comercial de um restaurante.</p>
           <a href="https://lucasndf.github.io/deufome/" target="_blank">Ver projeto</a>
+        </div>
+
+        <div class="card">
+          <h3>Sistema de Pedidos - Deu Fome</h3>
+          <p>Sistema funcional para pedidos de quentinhas com impressão e controle de itens.</p>
+          <a href="https://lucasndf.github.io/sistemadeufome/" target="_blank">Ver projeto</a>
+        </div>
+
+        <div class="card">
+          <h3>Sistema de Garantia Real Car</h3>
+          <p>Geração automática de garantias para clientes da oficina com impressão pronta.</p>
+          <a href="https://lucasndf.github.io/garantiarealcar/" target="_blank">Ver projeto</a>
+        </div>
+
+        <div class="card">
+          <h3>Sistema de Caixa Real Car</h3>
+          <p>Controle financeiro da oficina com entradas, saídas, filtros e login protegido.</p>
+          <a href="https://lucasndf.github.io/caixarealcar/" target="_blank">Ver projeto</a>
         </div>
 
       </div>
