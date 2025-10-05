@@ -6,80 +6,81 @@
   <title>Lucas Nascimento | Portfólio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9f9f9;
       color: #333;
       scroll-behavior: smooth;
     }
-
     .container {
       width: 90%;
       max-width: 1000px;
       margin: auto;
       padding: 60px 0;
     }
-
     header {
       background: #fff;
       border-bottom: 1px solid #eee;
       position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
+      top: 0; width: 100%; z-index: 1000;
     }
-
     header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0;
     }
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
     }
-
     nav a {
       text-decoration: none;
       color: #333;
       font-weight: 600;
     }
-
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
     .hero {
       background-color: #eaf6ff;
       padding-top: 140px;
       text-align: center;
     }
-
     .foto-perfil {
-      width: 130px;
-      height: 130px;
+      width: 130px; height: 130px;
       border-radius: 50%;
       border: 4px solid #0077ff;
       object-fit: cover;
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
+    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
     .btn {
       background-color: #0077ff;
       color: #fff;
@@ -87,34 +88,22 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
     }
-
     .sobre, .projetos, .contato {
       background-color: #fff;
       padding-top: 80px;
     }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-    }
-
+    h2 { font-size: 2rem; margin-bottom: 20px; }
+    .grid { display: grid; gap: 20px; }
     .card {
       background: #f3f3f3;
       padding: 20px;
       border-radius: 10px;
       transition: 0.3s ease;
     }
-
-    .card:hover {
-      background: #e0e0e0;
-    }
-
+    .card:hover { background: #e0e0e0; }
     footer {
       background: #333;
       color: white;
@@ -122,27 +111,62 @@
       padding: 30px 0;
       margin-top: 60px;
     }
-
     @media (min-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .grid { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (min-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    body.dark-mode header {
+      background: #1e1e1e;
+      border-color: #333;
+    }
+    body.dark-mode .card {
+      background: #222;
+      color: #f1f1f1;
+    }
+    body.dark-mode .card:hover {
+      background: #333;
+    }
+    body.dark-mode nav a {
+      color: #f1f1f1;
+    }
+    body.dark-mode .btn {
+      background-color: #ff6600 !important;
+      color: #fff !important;
+    }
+    body.dark-mode .hero {
+      background-color: #1f1f1f;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      padding: 10px 14px;
+      border: none;
+      background: #0077ff;
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
+  <button class="theme-toggle" onclick="toggleDark()">🌓 Tema</button>
+
   <header>
     <div class="container">
       <h1>Lucas Nascimento</h1>
       <nav>
-        <ul>
+        <button class="menu-toggle">☰</button>
+        <ul class="menu">
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#projetos">Projetos</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -172,43 +196,12 @@
     <div class="container">
       <h2>Projetos</h2>
       <div class="grid">
-
-        <div class="card">
-          <h3>Linktree Pessoal</h3>
-          <p>Uma página com todos os meus links de redes sociais e contatos.</p>
-          <a href="https://lucasndf.github.io/meu-linktree/" target="_blank">Ver projeto</a>
-        </div>
-
-        <div class="card">
-          <h3>Site Real Car</h3>
-          <p>Site institucional com apresentação da empresa e botão de contato via WhatsApp.</p>
-          <a href="https://lucasndf.github.io/site-realcar/" target="_blank">Ver projeto</a>
-        </div>
-
-        <div class="card">
-          <h3>Linktree Restaurante</h3>
-          <p>Linktree personalizado para o perfil comercial de um restaurante local.</p>
-          <a href="https://lucasndf.github.io/deufome/" target="_blank">Ver projeto</a>
-        </div>
-
-        <div class="card">
-          <h3>Sistema de Pedidos - Deu Fome</h3>
-          <p>Sistema funcional para pedidos de quentinhas com impressão e controle de itens.</p>
-          <a href="https://lucasndf.github.io/sistemadeufome/" target="_blank">Ver projeto</a>
-        </div>
-
-        <div class="card">
-          <h3>Sistema de Garantia</h3>
-          <p>Geração automática de garantias com formulário dinâmico e impressão direta.</p>
-          <a href="https://lucasndf.github.io/garantiarealcar/" target="_blank">Ver projeto</a>
-        </div>
-
-        <div class="card">
-          <h3>Sistema de Caixa</h3>
-          <p>Controle financeiro com entrada e saída de dados, filtros e integração com Firebase.</p>
-          <a href="https://lucasndf.github.io/caixarealcar/" target="_blank">Ver projeto</a>
-        </div>
-
+        <div class="card"><h3>Linktree Pessoal</h3><p>Página com links de redes sociais e contatos.</p><a href="https://lucasndf.github.io/meu-linktree/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Site Real Car</h3><p>Site institucional da empresa Real Car com botão WhatsApp.</p><a href="https://lucasndf.github.io/site-realcar/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Linktree Restaurante</h3><p>Linktree comercial para restaurante local.</p><a href="https://lucasndf.github.io/deufome/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Sistema de Pedidos - Deu Fome</h3><p>Pedidos de quentinhas com impressão e controle.</p><a href="https://lucasndf.github.io/sistemadeufome/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Sistema de Garantia</h3><p>Formulário dinâmico para gerar garantias de serviços.</p><a href="https://lucasndf.github.io/garantiarealcar/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Sistema de Caixa</h3><p>Gestão financeira com Firebase, filtros e relatórios.</p><a href="https://lucasndf.github.io/caixarealcar/" target="_blank">Ver projeto</a></div>
       </div>
     </div>
   </section>
@@ -218,6 +211,7 @@
       <h2>Contato</h2>
       <p style="margin-bottom: 16px;">Me envie uma mensagem pelas redes sociais.</p>
       <a href="https://lucasndf.github.io/meu-linktree/" target="_blank" class="btn">Acessar minhas redes</a>
+      <a href="https://wa.me/5583998546762?text=Olá,%20Lucas!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" class="btn" style="background:#25D366;">💬 Falar no WhatsApp</a>
     </div>
   </section>
 
@@ -227,6 +221,13 @@
     </div>
   </footer>
 
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark-mode');
+    }
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('nav ul').classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
-
