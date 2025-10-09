@@ -3,42 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas Nascimento | Portfólio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Lucas Nascimento | Desenvolvedor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9f9f9;
-      color: #333;
+      color: #222;
       scroll-behavior: smooth;
     }
+
+    /* ====== CONTAINERS ====== */
     .container {
       width: 90%;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 60px 0;
     }
+
+    /* ====== HEADER ====== */
     header {
       background: #fff;
       border-bottom: 1px solid #eee;
       position: fixed;
       top: 0; width: 100%; z-index: 1000;
     }
+
     header .container {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px 0;
     }
+
+    h1 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #111;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 24px;
     }
+
     nav a {
       text-decoration: none;
       color: #333;
       font-weight: 600;
+      transition: 0.3s;
     }
+
+    nav a:hover {
+      color: #0077ff;
+    }
+
     .menu-toggle {
       display: none;
       background: none;
@@ -46,6 +67,7 @@
       font-size: 28px;
       cursor: pointer;
     }
+
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -66,21 +88,39 @@
         display: block;
       }
     }
+
+    /* ====== HERO ====== */
     .hero {
-      background-color: #eaf6ff;
-      padding-top: 140px;
+      background: linear-gradient(135deg, #eaf3ff, #f7faff);
+      padding: 160px 0 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
       text-align: center;
+      gap: 50px;
     }
-    .foto-perfil {
-      width: 130px; height: 130px;
-      border-radius: 50%;
-      border: 4px solid #0077ff;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+    .hero-text h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #111;
     }
-    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+
+    .hero-text p {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 0 auto 24px;
+    }
+
     .btn {
       background-color: #0077ff;
       color: #fff;
@@ -89,77 +129,83 @@
       text-decoration: none;
       font-weight: 600;
       display: inline-block;
-      margin-top: 10px;
+      transition: 0.3s;
     }
+
+    .btn:hover {
+      background-color: #005fd4;
+      transform: translateY(-2px);
+    }
+
+    .hero-image img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #0077ff;
+      object-fit: cover;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        text-align: left;
+      }
+      .hero-text {
+        flex: 1;
+      }
+      .hero-image {
+        flex: 0 0 220px;
+      }
+    }
+
+    /* ====== SEÇÕES ====== */
     .sobre, .projetos, .contato {
       background-color: #fff;
       padding-top: 80px;
     }
-    h2 { font-size: 2rem; margin-bottom: 20px; }
+
+    h2.section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
     .grid { display: grid; gap: 20px; }
+
     .card {
       background: #f3f3f3;
       padding: 20px;
       border-radius: 10px;
       transition: 0.3s ease;
     }
+
     .card:hover { background: #e0e0e0; }
+
     footer {
-      background: #333;
+      background: #111;
       color: white;
       text-align: center;
       padding: 30px 0;
       margin-top: 60px;
+      font-size: 0.95rem;
     }
+
     @media (min-width: 600px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
     }
+
     @media (min-width: 900px) {
       .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    body.dark-mode {
-      background-color: #121212;
-      color: #f1f1f1;
-    }
-    body.dark-mode header {
-      background: #1e1e1e;
-      border-color: #333;
-    }
-    body.dark-mode .card {
-      background: #222;
-      color: #f1f1f1;
-    }
-    body.dark-mode .card:hover {
-      background: #333;
-    }
-    body.dark-mode nav a {
-      color: #f1f1f1;
-    }
-    body.dark-mode .btn {
-      background-color: #ff6600 !important;
-      color: #fff !important;
-    }
-    body.dark-mode .hero {
-      background-color: #1f1f1f;
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 999;
-      padding: 10px 14px;
-      border: none;
-      background: #0077ff;
-      color: white;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-  <button class="theme-toggle" onclick="toggleDark()">🌓 Tema</button>
 
   <header>
     <div class="container">
@@ -175,59 +221,70 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <img src="eufoto.jpg" alt="Foto de Lucas" class="foto-perfil">
-      <h2>Olá! Eu sou o Lucas</h2>
-      <p>Desenvolvedor em formação, apaixonado por criar e aprender.</p>
-      <a href="#projetos" class="btn">Ver Projetos</a>
-    </div>
-  </section>
-
-  <section id="sobre" class="sobre">
-    <div class="container">
-      <h2>Sobre mim</h2>
-      <p>Sou estudante de Ciência da Computação, com foco em desenvolvimento web utilizando <strong>HTML, CSS e JavaScript</strong>. Desenvolvo interfaces modernas e <strong>totalmente responsivas</strong>, aplicadas em projetos reais como sistemas de pedidos, controle financeiro e páginas institucionais.</p>
-      <p>Também utilizo ferramentas como o <strong>Firebase</strong> para recursos de <strong>login, armazenamento de dados e persistência em tempo real</strong>, garantindo segurança e escalabilidade nas aplicações.</p>
-    </div>
-  </section>
-
-  <section id="projetos" class="projetos">
-    <div class="container">
-      <h2>Projetos</h2>
-      <div class="grid">
-        <div class="card"><h3>Linktree Pessoal</h3><p>Página com links de redes sociais e contatos.</p><a href="https://lucasndf.github.io/meu-linktree/" target="_blank">Ver projeto</a></div>
-        <div class="card"><h3>Site Real Car</h3><p>Site institucional da empresa Real Car com botão WhatsApp.</p><a href="https://lucasndf.github.io/site-realcar/" target="_blank">Ver projeto</a></div>
-        <div class="card"><h3>Linktree Restaurante</h3><p>Linktree comercial para restaurante local.</p><a href="https://lucasndf.github.io/deufome/" target="_blank">Ver projeto</a></div>
-        <div class="card"><h3>Sistema de Pedidos - Deu Fome</h3><p>Pedidos de quentinhas com impressão e controle.</p><a href="https://lucasndf.github.io/sistemadeufome/" target="_blank">Ver projeto</a></div>
-        <div class="card"><h3>Sistema de Garantia</h3><p>Formulário dinâmico para gerar garantias de serviços.</p><a href="https://lucasndf.github.io/garantiarealcar/" target="_blank">Ver projeto</a></div>
-        <div class="card"><h3>Sistema de Caixa</h3><p>Gestão financeira com Firebase, filtros e relatórios.</p><a href="https://lucasndf.github.io/caixarealcar/" target="_blank">Ver projeto</a></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Desenvolvendo ideias em código</h2>
+          <p>Sou um desenvolvedor em formação, focado em criar soluções digitais práticas e funcionais para o dia a dia. Busco unir design limpo, boa experiência de uso e código eficiente.</p>
+          <a href="#projetos" class="btn">Ver Projetos</a>
+        </div>
+        <div class="hero-image">
+          <img src="euperfil.jpg" alt="Foto de Lucas Nascimento">
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- SOBRE -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre mim</h2>
+      <p>Sou estudante de <strong>Ciência da Computação</strong> no Unipê e desenvolvedor em formação, com foco em <strong>desenvolvimento web</strong> utilizando <strong>HTML, CSS e JavaScript</strong>. Desenvolvo interfaces modernas e <strong>responsivas</strong>, aplicadas em projetos reais como sistemas de pedidos, controle financeiro e páginas institucionais.</p>
+
+      <p>Tenho como objetivo criar soluções digitais práticas, com foco em design limpo, eficiência e boa experiência de uso. Trabalho com <strong>integração de front-end ao Firebase</strong> para login, armazenamento e sincronização de dados em tempo real, garantindo escalabilidade e segurança nas aplicações.</p>
+
+      <p>Sou apaixonado por tecnologia e aprendizado contínuo. Estou constantemente evoluindo em <strong>JavaScript moderno</strong>, boas práticas de programação, e iniciando minha jornada no <strong>back-end</strong> e em <strong>bancos de dados</strong>. Busco crescer como <strong>desenvolvedor full stack</strong> e contribuir para projetos que gerem impacto real por meio da tecnologia.</p>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="projetos">
+    <div class="container">
+      <h2 class="section-title">Projetos</h2>
+      <div class="grid">
+        <div class="card"><h3>Linktree Pessoal</h3><p>Página com links de redes sociais e contatos.</p><a href="https://lucasndf.github.io/meu-linktree/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Site Real Car</h3><p>Site institucional com botão WhatsApp.</p><a href="https://lucasndf.github.io/site-realcar/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Linktree Restaurante</h3><p>Versão comercial para restaurantes.</p><a href="https://lucasndf.github.io/deufome/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Sistema de Pedidos</h3><p>Pedidos automatizados com impressão.</p><a href="https://lucasndf.github.io/sistemadeufome/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Sistema de Garantia</h3><p>Formulário dinâmico de garantia de serviços.</p><a href="https://lucasndf.github.io/garantiarealcar/" target="_blank">Ver projeto</a></div>
+        <div class="card"><h3>Sistema de Caixa</h3><p>Gestão financeira com filtros e relatórios.</p><a href="https://lucasndf.github.io/caixarealcar/" target="_blank">Ver projeto</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
   <section id="contato" class="contato">
     <div class="container">
-      <h2>Contato</h2>
-      <p style="margin-bottom: 16px;">Me envie uma mensagem pelas redes sociais.</p>
-      <a href="https://lucasndf.github.io/meu-linktree/" target="_blank" class="btn">Acessar minhas redes</a>
-      <a href="https://wa.me/5583998546762?text=Olá,%20Lucas!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" class="btn" style="background:#25D366;">💬 Falar no WhatsApp</a>
+      <h2 class="section-title">Contato</h2>
+      <p style="margin-bottom: 16px;">Entre em contato ou conheça minhas redes abaixo:</p>
+      <a href="https://lucasndf.github.io/meu-linktree/" target="_blank" class="btn">Acessar Redes</a>
+      <a href="https://wa.me/5583998546762?text=Olá,%20Lucas!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" class="btn" style="background:#25D366;">WhatsApp</a>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Lucas Nascimento de Figueiredo. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Lucas Nascimento de Figueiredo — Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script>
-    function toggleDark() {
-      document.body.classList.toggle('dark-mode');
-    }
     document.querySelector('.menu-toggle').addEventListener('click', () => {
       document.querySelector('nav ul').classList.toggle('show');
     });
   </script>
+
 </body>
 </html>
