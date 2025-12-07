@@ -57,4 +57,3 @@ Minha missão é sempre evoluir e entregar o melhor código possível.
 
 Obrigado por visitar meu portfólio!
 Sinta-se à vontade para abrir sugestões, issues ou me chamar para conversar sobre ideias e oportunidades.
-
